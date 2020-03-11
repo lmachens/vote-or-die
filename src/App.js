@@ -10,7 +10,7 @@ function App() {
   return (
     <Router>
       <Header />
-      <main>
+      <main className="main">
         <Switch>
           <Route exact path="/">
             <Add />
