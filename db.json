@@ -20,6 +20,20 @@
       "answerTwo": "15 Pounds",
       "answerThree": "199 bucks",
       "id": 3
+    },
+    {
+      "question": "What do you like to drink?",
+      "answerOne": "Corona beer",
+      "answerTwo": "Water",
+      "answerThree": "Vodka",
+      "id": 4
+    },
+    {
+      "question": "What do you like to play tonight?",
+      "answerOne": "Mario Parteyyy!!",
+      "answerTwo": "Zelda",
+      "answerThree": "Tekken 3",
+      "id": 5
     }
   ]
 }
