@@ -1,6 +1,6 @@
-import React from "react";
-import "./Header.css";
-import Skull from "./skull.png";
+import React from 'react';
+import './Header.css';
+import Skull from './skull.png';
 
 function Header() {
   return (
