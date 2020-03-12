@@ -1,0 +1,25 @@
+{
+  "polls": [
+    {
+      "id": 1,
+      "question": "How much is the fish?",
+      "answerOne": "8$",
+      "answerTwo": "5 Pounds",
+      "answerThree": "99 bucks"
+    },
+    {
+      "id": 2,
+      "question": "How much is the cat?",
+      "answerOne": "15$",
+      "answerTwo": "15 Pounds",
+      "answerThree": "199 bucks"
+    },
+    {
+      "question": "How much is the dog?",
+      "answerOne": "25$",
+      "answerTwo": "15 Pounds",
+      "answerThree": "199 bucks",
+      "id": 3
+    }
+  ]
+}
