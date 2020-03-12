@@ -19,7 +19,7 @@ function Add() {
       answerThree: answerThree
     };
 
-    const response = await fetch('http://localhost:4000/polls', {
+    const response = await fetch(process.env.REACT_APP_POLLS_API, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
