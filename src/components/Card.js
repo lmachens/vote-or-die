@@ -1,8 +1,12 @@
-import React from 'react';
-import './Card.css';
+import styled from '@emotion/styled';
 
-function Card(props) {
-  return <div className="card">{props.children}</div>;
-}
+const Card = styled.div`
+  background: #eee;
+  border-radius: 10px;
+  padding: 20px;
+  width: 100%;
+  max-width: 600px;
+  color: #111;
+`;
 
 export default Card;

@@ -1,8 +1,10 @@
-import React from 'react';
-import './Button.css';
+import styled from '@emotion/styled';
 
-function Button(props) {
-  return <button className="button" {...props} />;
-}
+const Button = styled.button`
+  background: #1dcb6d;
+  border-radius: 10px;
+  padding: 6px 10px;
+  font-weight: bold;
+`;
 
 export default Button;
