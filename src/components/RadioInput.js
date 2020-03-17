@@ -23,16 +23,10 @@ const Checkmark = styled.div`
   margin-right: 8px;
 `;
 
-const RadioInput = ({ checked, onChange, value, label }) => {
+const RadioInput = ({ checked, label, ...inputProps }) => {
   return (
     <Label>
-      <Input
-        type="radio"
-        name="answer"
-        value={value}
-        checked={checked}
-        onChange={onChange}
-      />
+      <Input type="radio" checked={checked} {...inputProps} />
       <Checkmark checked={checked} />
       {label}
     </Label>
