@@ -1,13 +1,9 @@
 import React from 'react';
 import Card from '../components/Card';
 import { useParams, useHistory } from 'react-router-dom';
-import styled from '@emotion/styled';
 import Button from '../components/Button';
 import Form from '../components/Form';
-
-const Label = styled.label`
-  display: block;
-`;
+import RadioInput from '../components/RadioInput';
 
 const POLLS_API_URL =
   process.env.REACT_APP_POLLS_API ||
@@ -49,36 +45,24 @@ function Vote() {
     <Card>
       <Form onSubmit={handleSubmit}>
         <h2>{poll?.question}</h2>
-        <Label>
-          <input
-            type="radio"
-            name="answer"
-            value="answerOne"
-            checked={answer === 'answerOne'}
-            onChange={event => setAnswer(event.target.value)}
-          />
-          {poll?.answerOne}
-        </Label>
-        <Label>
-          <input
-            type="radio"
-            name="answer"
-            value="answerTwo"
-            checked={answer === 'answerTwo'}
-            onChange={event => setAnswer(event.target.value)}
-          />
-          {poll?.answerTwo}
-        </Label>
-        <Label>
-          <input
-            type="radio"
-            name="answer"
-            value="answerThree"
-            checked={answer === 'answerThree'}
-            onChange={event => setAnswer(event.target.value)}
-          />
-          {poll?.answerThree}
-        </Label>
+        <RadioInput
+          checked={answer === 'answerOne'}
+          value="answerOne"
+          label={poll?.answerOne}
+          onChange={event => setAnswer(event.target.value)}
+        />
+        <RadioInput
+          checked={answer === 'answerTwo'}
+          value="answerTwo"
+          label={poll?.answerTwo}
+          onChange={event => setAnswer(event.target.value)}
+        />
+        <RadioInput
+          checked={answer === 'answerThree'}
+          value="answerThree"
+          label={poll?.answerThree}
+          onChange={event => setAnswer(event.target.value)}
+        />
         <Button>Vote</Button>
       </Form>
     </Card>
