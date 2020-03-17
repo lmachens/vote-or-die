@@ -2,12 +2,7 @@ import React from 'react';
 import Card from '../components/Card';
 import Button from '../components/Button';
 import styled from '@emotion/styled';
-
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
+import Form from '../components/Form';
 
 const Input = styled.input`
   width: 100%;
@@ -42,7 +37,8 @@ function Add() {
       question: question,
       answerOne: answerOne,
       answerTwo: answerTwo,
-      answerThree: answerThree
+      answerThree: answerThree,
+      votes: []
     };
 
     const response = await fetch(
