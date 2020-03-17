@@ -41,31 +41,21 @@ function Vote() {
     history.push(`/polls/${poll.id}`);
   }
 
+  const options = ['answerOne', 'answerTwo', 'answerThree'];
   return (
     <Card>
       <Form onSubmit={handleSubmit}>
         <h2>{poll?.question}</h2>
-        <RadioInput
-          checked={answer === 'answerOne'}
-          onChange={event => setAnswer(event.target.value)}
-          value="answerOne"
-          label={poll?.answerOne}
-          name="answer"
-        />
-        <RadioInput
-          checked={answer === 'answerTwo'}
-          onChange={event => setAnswer(event.target.value)}
-          value="answerTwo"
-          label={poll?.answerTwo}
-          name="answer"
-        />
-        <RadioInput
-          checked={answer === 'answerThree'}
-          onChange={event => setAnswer(event.target.value)}
-          value="answerThree"
-          label={poll?.answerThree}
-          name="answer"
-        />
+        {options.map(option => (
+          <RadioInput
+            key={option}
+            checked={answer === option}
+            onChange={event => setAnswer(event.target.value)}
+            value={option}
+            label={poll?.[option]}
+            name="answer"
+          />
+        ))}
         <Button>Vote</Button>
       </Form>
     </Card>
