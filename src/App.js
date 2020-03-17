@@ -23,7 +23,7 @@ function App() {
           <Route exact path="/">
             <Add />
           </Route>
-          <Route path="/vote">
+          <Route path="/polls/:pollId/vote">
             <Vote />
           </Route>
           <Route path="/polls/:pollId">
