@@ -20,12 +20,27 @@ function Result() {
     getPoll();
   }, [pollId]);
 
+  const answerOneVotes = poll?.votes.filter(vote => vote === 'answerOne')
+    .length;
+  const answerTwoVotes = poll?.votes.filter(vote => vote === 'answerTwo')
+    .length;
+  const answerThreeVotes = poll?.votes.filter(vote => vote === 'answerThree')
+    .length;
+
   return (
     <Card>
-      <h2>{poll?.question}</h2>
-      <div>{poll?.answerOne}</div>
-      <div>{poll?.answerTwo}</div>
-      <div>{poll?.answerThree}</div>
+      <h2>
+        {poll?.question} ({poll?.votes.length} votes)
+      </h2>
+      <div>
+        {poll?.answerOne} ({answerOneVotes} votes)
+      </div>
+      <div>
+        {poll?.answerTwo} ({answerTwoVotes} votes)
+      </div>
+      <div>
+        {poll?.answerThree} ({answerThreeVotes} votes)
+      </div>
     </Card>
   );
 }
