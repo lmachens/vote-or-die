@@ -10,12 +10,23 @@ const Header = styled.header`
   padding: 10px;
 `;
 
-function AppHeader() {
+const SwitchColorButton = styled.button`
+  border: none;
+  background: none;
+  font-size: 20px;
+`;
+
+function AppHeader({ onSwitchColorButtonClick }) {
   return (
     <Header>
       <Logo />
       <Title>Vote or die</Title>
       <Logo />
+      <SwitchColorButton onClick={onSwitchColorButtonClick}>
+        <span role="img" aria-label="Switch theme">
+          🌗
+        </span>
+      </SwitchColorButton>
     </Header>
   );
 }
