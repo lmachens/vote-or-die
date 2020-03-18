@@ -6,7 +6,7 @@ const Card = styled.div`
   padding: 20px;
   width: 100%;
   max-width: 600px;
-  color: #111;
+  color: ${props => props.theme.colors.textPrimary};
 `;
 
 export default Card;
