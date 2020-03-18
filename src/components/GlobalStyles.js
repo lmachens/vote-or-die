@@ -4,10 +4,10 @@ import { Global, css } from '@emotion/core';
 function GlobalStyles() {
   return (
     <Global
-      styles={css`
+      styles={theme => css`
         body {
           margin: 0;
-          background: linear-gradient(to right bottom, #13098b, #4a486d);
+          background: ${theme.colors.backgroundPrimary};
           height: 100vh;
           color: #f2f2f2;
           font-family: 'Passero One', cursive;
