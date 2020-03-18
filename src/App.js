@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Vote from './pages/Vote';
 import Result from './pages/Result';
 import styled from '@emotion/styled';
+import Polls from './pages/Polls';
 
 const Main = styled.main`
   padding: 40px 20px;
@@ -22,6 +23,9 @@ function App() {
         <Switch>
           <Route exact path="/">
             <Add />
+          </Route>
+          <Route exact path="/polls">
+            <Polls />
           </Route>
           <Route path="/polls/:pollId/vote">
             <Vote />
