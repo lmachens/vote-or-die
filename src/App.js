@@ -7,7 +7,8 @@ import Result from './pages/Result';
 import styled from '@emotion/styled';
 import GlobalStyles from './components/GlobalStyles';
 import { ThemeProvider } from 'emotion-theming';
-import cold from './themes/cold';
+// import cold from './themes/cold';
+import night from './themes/night';
 
 const Main = styled.main`
   padding: 40px 20px;
@@ -19,7 +20,7 @@ const Main = styled.main`
 
 function App() {
   return (
-    <ThemeProvider theme={cold}>
+    <ThemeProvider theme={night}>
       <Router>
         <GlobalStyles />
         <AppHeader />
