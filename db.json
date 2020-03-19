@@ -64,8 +64,63 @@
       "answerOne": "Sure",
       "answerTwo": "It's awesome",
       "answerThree": "wtf!?",
-      "votes": [],
+      "votes": [
+        "answerTwo",
+        "answerTwo",
+        "answerThree",
+        "answerTwo"
+      ],
       "id": 7
+    },
+    {
+      "question": "dasdas",
+      "answerOne": "adasdas",
+      "answerTwo": "dasdas",
+      "answerThree": "asdas",
+      "votes": [],
+      "id": 8
+    },
+    {
+      "question": "dasdas",
+      "answerOne": "adasdas",
+      "answerTwo": "dasdas",
+      "answerThree": "asdas",
+      "votes": [],
+      "id": 9
+    },
+    {
+      "question": "asdas",
+      "answerOne": "ddasdas",
+      "answerTwo": "dgfgfd",
+      "answerThree": "asdas",
+      "votes": [],
+      "id": 10
+    },
+    {
+      "question": "ads",
+      "answerOne": "dsa",
+      "answerTwo": "dasd",
+      "answerThree": "dd",
+      "votes": [],
+      "id": 11
+    },
+    {
+      "question": "dasdas",
+      "answerOne": "dasdasd",
+      "answerTwo": "asfds",
+      "answerThree": "dsfds",
+      "votes": [
+        null
+      ],
+      "id": 12
+    },
+    {
+      "question": "dsfsdf",
+      "answerOne": "dsfds",
+      "answerTwo": "fsdf",
+      "answerThree": "sdfds",
+      "votes": [],
+      "id": 13
     }
   ]
 }

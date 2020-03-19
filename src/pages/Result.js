@@ -3,15 +3,19 @@ import { useParams } from 'react-router-dom';
 import Card from '../components/Card';
 import PieChart from 'react-minimal-pie-chart';
 import { getPoll } from '../api/polls';
+import Loading from '../components/Loading';
 
 function Result() {
   const { pollId } = useParams();
   const [poll, setPoll] = React.useState(null);
+  const [isLoading, setIsLoading] = React.useState(true);
 
   React.useEffect(() => {
     async function doGetPoll() {
+      setIsLoading(true);
       const poll = await getPoll(pollId);
       setPoll(poll);
+      setIsLoading(false);
     }
     doGetPoll();
     // getPoll(pollId).then(poll => setPoll(poll));
@@ -24,6 +28,9 @@ function Result() {
   const answerThreeVotes =
     poll?.votes.filter(vote => vote === 'answerThree').length || 0;
 
+  if (isLoading) {
+    return <Loading />;
+  }
   return (
     <Card>
       <h2>
