@@ -8,6 +8,7 @@ import styled from '@emotion/styled';
 import GlobalStyles from './components/GlobalStyles';
 import { ThemeProvider } from 'emotion-theming';
 import cold from './themes/cold';
+import night from './themes/night';
 
 const Main = styled.main`
   padding: 40px 20px;
@@ -18,11 +19,22 @@ const Main = styled.main`
 `;
 
 function App() {
+  const [theme, setTheme] = React.useState(night);
+
   return (
-    <ThemeProvider theme={cold}>
+    <ThemeProvider theme={theme}>
       <Router>
         <GlobalStyles />
-        <AppHeader />
+        <AppHeader
+          onSwitchColorButtonClick={() => {
+            // if (theme === night) {
+            //   setTheme(cold);
+            // } else {
+            //   setTheme(night);
+            // }
+            setTheme(theme === night ? cold : night);
+          }}
+        />
         <Main>
           <Switch>
             <Route exact path="/">
