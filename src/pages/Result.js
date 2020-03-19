@@ -2,30 +2,12 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import Card from '../components/Card';
 import PieChart from 'react-minimal-pie-chart';
-import { getPoll } from '../api/polls';
 import Loading from '../components/Loading';
+import useGetPoll from '../hooks/useGetPoll';
 
 function Result() {
   const { pollId } = useParams();
-  const [poll, setPoll] = React.useState(null);
-  const [isLoading, setIsLoading] = React.useState(true);
-  const [errorMessage, setErrorMessage] = React.useState(false);
-
-  React.useEffect(() => {
-    async function doGetPoll() {
-      try {
-        setIsLoading(true);
-        const poll = await getPoll(pollId);
-        setPoll(poll);
-        setIsLoading(false);
-      } catch (error) {
-        // console.error('Received error', error.message);
-        setErrorMessage(error.message);
-      }
-    }
-    doGetPoll();
-    // getPoll(pollId).then(poll => setPoll(poll));
-  }, [pollId]);
+  const { poll, isLoading, errorMessage } = useGetPoll(pollId);
 
   const answerOneVotes =
     poll?.votes.filter(vote => vote === 'answerOne').length || 0;
