@@ -32,9 +32,12 @@ function Add() {
   const [answerOne, setAnswerOne] = React.useState('');
   const [answerTwo, setAnswerTwo] = React.useState('');
   const [answerThree, setAnswerThree] = React.useState('');
+  const [isLoading, setIsLoading] = React.useState(false);
 
   async function handleSubmit(event) {
     event.preventDefault();
+
+    setIsLoading(true);
 
     const poll = {
       question: question,
@@ -83,7 +86,7 @@ function Add() {
             setAnswerThree(event.target.value);
           }}
         />
-        <Button>Create Poll</Button>
+        <Button disabled={isLoading}>Create Poll</Button>
       </Form>
     </Card>
   );
