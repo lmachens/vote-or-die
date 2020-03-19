@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import Card from '../components/Card';
 import PieChart from 'react-minimal-pie-chart';
 import { getPoll } from '../api/polls';
+import Loading from '../components/Loading';
 
 function Result() {
   const { pollId } = useParams();
@@ -28,7 +29,7 @@ function Result() {
     poll?.votes.filter(vote => vote === 'answerThree').length || 0;
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
   return (
     <Card>

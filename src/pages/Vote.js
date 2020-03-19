@@ -5,6 +5,7 @@ import Button from '../components/Button';
 import Form from '../components/Form';
 import RadioInput from '../components/RadioInput';
 import { patchPoll, getPoll } from '../api/polls';
+import Loading from '../components/Loading';
 
 function Vote() {
   const { pollId } = useParams();
@@ -38,7 +39,7 @@ function Vote() {
   }
 
   if (isLoadingGetPoll) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   const options = ['answerOne', 'answerTwo', 'answerThree'];
