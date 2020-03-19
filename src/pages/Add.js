@@ -3,6 +3,8 @@ import Card from '../components/Card';
 import Button from '../components/Button';
 import styled from '@emotion/styled';
 import Form from '../components/Form';
+import { postPoll } from '../api/polls';
+import { useHistory } from 'react-router-dom';
 
 const Input = styled.input`
   width: 100%;
@@ -25,6 +27,7 @@ const AnswerInput = styled(Input)`
 `;
 
 function Add() {
+  const history = useHistory();
   const [question, setQuestion] = React.useState('');
   const [answerOne, setAnswerOne] = React.useState('');
   const [answerTwo, setAnswerTwo] = React.useState('');
@@ -41,19 +44,8 @@ function Add() {
       votes: []
     };
 
-    const response = await fetch(
-      process.env.REACT_APP_POLLS_API ||
-        'https://my-json-server.typicode.com/lmachens/vote-or-die/polls',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(poll)
-      }
-    );
-    const createdPoll = await response.json();
-    alert(`Created poll with the id ${createdPoll.id}`);
+    const createdPoll = await postPoll(poll);
+    history.push(`/polls/${createdPoll.id}/vote`);
   }
 
   return (
