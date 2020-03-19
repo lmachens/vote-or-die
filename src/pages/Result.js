@@ -7,11 +7,14 @@ import { getPoll } from '../api/polls';
 function Result() {
   const { pollId } = useParams();
   const [poll, setPoll] = React.useState(null);
+  const [isLoading, setIsLoading] = React.useState(true);
 
   React.useEffect(() => {
     async function doGetPoll() {
+      setIsLoading(true);
       const poll = await getPoll(pollId);
       setPoll(poll);
+      setIsLoading(false);
     }
     doGetPoll();
     // getPoll(pollId).then(poll => setPoll(poll));
@@ -24,6 +27,9 @@ function Result() {
   const answerThreeVotes =
     poll?.votes.filter(vote => vote === 'answerThree').length || 0;
 
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
   return (
     <Card>
       <h2>
