@@ -9,13 +9,19 @@ function Result() {
   const { pollId } = useParams();
   const [poll, setPoll] = React.useState(null);
   const [isLoading, setIsLoading] = React.useState(true);
+  const [errorMessage, setErrorMessage] = React.useState(false);
 
   React.useEffect(() => {
     async function doGetPoll() {
-      setIsLoading(true);
-      const poll = await getPoll(pollId);
-      setPoll(poll);
-      setIsLoading(false);
+      try {
+        setIsLoading(true);
+        const poll = await getPoll(pollId);
+        setPoll(poll);
+        setIsLoading(false);
+      } catch (error) {
+        // console.error('Received error', error.message);
+        setErrorMessage(error.message);
+      }
     }
     doGetPoll();
     // getPoll(pollId).then(poll => setPoll(poll));
@@ -28,6 +34,9 @@ function Result() {
   const answerThreeVotes =
     poll?.votes.filter(vote => vote === 'answerThree').length || 0;
 
+  if (errorMessage) {
+    return <div>{errorMessage}</div>;
+  }
   if (isLoading) {
     return <Loading />;
   }
